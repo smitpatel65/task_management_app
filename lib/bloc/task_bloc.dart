@@ -7,6 +7,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
   final TaskService taskService;
 
   TaskBloc(this.taskService) : super(TaskLoading()) {
+    //get data from api
     on<FetchTasks>((event, emit) async {
       try {
         final tasks = await taskService.fetchTasks();
